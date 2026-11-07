@@ -1,0 +1,30 @@
+# Run configuration for the Telugu model (paths, run names, steps).
+# The model / feature settings (mel, pitch, energy, phone set, speaker count ...) are in
+# fastspeech2/config.yaml, the config of the FastSpeech 2 code bundle (Telugu_code.zip).
+language: Telugu
+hf_repo: akshaya148/tts-prepared-data      # Hugging Face dataset repo used as storage (must be readable by you)
+run_name: Telugu_run                           # folder in the repo with checkpoints and loss CSVs
+core_dir: fastspeech2                      # the unpacked Telugu_code.zip (tools/merge_code_zips.py)
+core_config: fastspeech2/config.yaml
+
+paths:
+  data_dir: data/Telugu                        # raw/<speaker>/*.wav|*.lab, TextGrid/, manifest.csv
+  preprocessed_dir: preprocessed/Telugu        # mel / pitch / energy / duration features, stats.json
+  work_root: work                          # replaces /kaggle/working in the core config (checkpoints, logs)
+  results_dir: ../Results/Telugu
+
+kaggle_paths_in_core_config:               # what the core config contains, replaced at run time
+  data: /kaggle/working/data/Telugu
+  preprocessed: /kaggle/working/preprocessed/Telugu
+
+training:
+  total_steps: 15000                      # steps of the final run
+  validate_every: 1000                     # steps
+  best_checkpoint_step: 15000              # lowest validation loss
+
+inference:
+  checkpoint: checkpoints/best.pth.tar
+  sentences: fastspeech2/test_sentences.txt
+  extra_sentences: fastspeech2/extra_sentences.txt
+  speaker_id: 0
+  device: cuda

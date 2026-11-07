@@ -1,0 +1,25 @@
+# Core (training / preprocessing / inference)
+torch
+numpy
+scipy
+pandas
+pyyaml
+soundfile
+librosa
+matplotlib
+tqdm
+tgt
+pyworld          # install with: pip install pyworld --no-deps  (as done in the notebooks)
+inflect
+unidecode
+g2p_en           # English G2P for out-of-vocabulary words at inference
+nltk
+num2words        # English number normalisation before alignment
+setuptools<81    # pyworld still imports pkg_resources
+
+# Data preparation + syncing with Hugging Face
+datasets
+huggingface_hub
+
+# NOT installable with pip: Montreal Forced Aligner (used for phone alignments)
+#   micromamba create -y -p ./mfaenv -c conda-forge montreal-forced-aligner

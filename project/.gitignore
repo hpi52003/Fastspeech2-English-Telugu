@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+# raw data, features and run outputs are rebuilt by the scripts
+English/data/
+Telugu/data/
+English/preprocessed/
+Telugu/preprocessed/
+English/work/
+Telugu/work/
+/data/
+*_code.zip

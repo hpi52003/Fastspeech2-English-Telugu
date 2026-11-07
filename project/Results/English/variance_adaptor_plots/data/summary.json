@@ -1,0 +1,211 @@
+[
+  {
+    "id": "E1",
+    "text": "The antidisestablishmentarianism movement gained considerable momentum during the parliamentary proceedings.",
+    "n_phones": 87,
+    "total_duration_s": 5.364,
+    "n_pauses": 0,
+    "pause_ms": 0.0,
+    "mean_phone_ms": 61.7,
+    "zero_length_phones": [],
+    "pitch_hz": {
+      "min": 105.3,
+      "max": 169.3,
+      "first": 135.1,
+      "last": 112.8
+    },
+    "energy": {
+      "min": 9.121,
+      "max": 119.079
+    },
+    "normalised_text": "The antidisestablishmentarianism movement gained considerable momentum during the parliamentary proceedings.",
+    "words": [
+      "the",
+      "antidisestablishmentarianism",
+      "movement",
+      "gained",
+      "considerable",
+      "momentum",
+      "during",
+      "the",
+      "parliamentary",
+      "proceedings"
+    ]
+  },
+  {
+    "id": "E2a",
+    "text": "The orchestra's conduct during the ceremony was praised by the audience.",
+    "n_phones": 51,
+    "total_duration_s": 3.785,
+    "n_pauses": 0,
+    "pause_ms": 0.0,
+    "mean_phone_ms": 74.2,
+    "zero_length_phones": [],
+    "pitch_hz": {
+      "min": 97.4,
+      "max": 153.1,
+      "first": 146.9,
+      "last": 97.4
+    },
+    "energy": {
+      "min": 6.244,
+      "max": 134.932
+    },
+    "normalised_text": "The orchestra's conduct during the ceremony was praised by the audience.",
+    "words": [
+      "the",
+      "orchestra's",
+      "conduct",
+      "during",
+      "the",
+      "ceremony",
+      "was",
+      "praised",
+      "by",
+      "the",
+      "audience"
+    ]
+  },
+  {
+    "id": "E2b",
+    "text": "The researchers will conduct an experiment to evaluate the proposed method.",
+    "n_phones": 56,
+    "total_duration_s": 3.657,
+    "n_pauses": 0,
+    "pause_ms": 0.0,
+    "mean_phone_ms": 65.3,
+    "zero_length_phones": [],
+    "pitch_hz": {
+      "min": 110.6,
+      "max": 172.5,
+      "first": 172.5,
+      "last": 110.6
+    },
+    "energy": {
+      "min": 7.963,
+      "max": 130.472
+    },
+    "normalised_text": "The researchers will conduct an experiment to evaluate the proposed method.",
+    "words": [
+      "the",
+      "researchers",
+      "will",
+      "conduct",
+      "an",
+      "experiment",
+      "to",
+      "evaluate",
+      "the",
+      "proposed",
+      "method"
+    ]
+  },
+  {
+    "id": "E3",
+    "text": "The rhyth m of the orchestra changed unexpectedly.",
+    "n_phones": 37,
+    "total_duration_s": 2.566,
+    "n_pauses": 0,
+    "pause_ms": 0.0,
+    "mean_phone_ms": 69.3,
+    "zero_length_phones": [],
+    "pitch_hz": {
+      "min": 114.7,
+      "max": 155.9,
+      "first": 139.7,
+      "last": 114.7
+    },
+    "energy": {
+      "min": 10.9,
+      "max": 128.843
+    },
+    "normalised_text": "The rhyth m of the orchestra changed unexpectedly.",
+    "words": [
+      "the",
+      "rhyth",
+      "m",
+      "of",
+      "the",
+      "orchestra",
+      "changed",
+      "unexpectedly"
+    ]
+  },
+  {
+    "id": "E4",
+    "text": "The meeting will start at 10:45 AM on 12 November 2026, so andaroo should arrive on time.",
+    "n_phones": 84,
+    "total_duration_s": 6.258,
+    "n_pauses": 1,
+    "pause_ms": 429.6,
+    "mean_phone_ms": 70.2,
+    "zero_length_phones": [],
+    "pitch_hz": {
+      "min": 110.3,
+      "max": 198.4,
+      "first": 163.5,
+      "last": 111.1
+    },
+    "energy": {
+      "min": 7.244,
+      "max": 136.489
+    },
+    "normalised_text": "The meeting will start at ten forty five A M on twelfth of November twenty twenty six, so andaroo should arrive on time.",
+    "words": [
+      "the",
+      "meeting",
+      "will",
+      "start",
+      "at",
+      "ten",
+      "forty",
+      "five",
+      "a",
+      "m",
+      "on",
+      "twelfth",
+      "of",
+      "november",
+      "twenty",
+      "twenty",
+      "six",
+      ",",
+      "so",
+      "andaroo",
+      "should",
+      "arrive",
+      "on",
+      "time"
+    ]
+  },
+  {
+    "id": "E3_fixed",
+    "text": "The rhythm of the orchestra changed unexpectedly.",
+    "n_phones": 37,
+    "total_duration_s": 2.566,
+    "n_pauses": 0,
+    "pause_ms": 0.0,
+    "mean_phone_ms": 69.3,
+    "zero_length_phones": [],
+    "pitch_hz": {
+      "min": 115.1,
+      "max": 168.6,
+      "first": 138.6,
+      "last": 115.1
+    },
+    "energy": {
+      "min": 10.961,
+      "max": 146.837
+    },
+    "normalised_text": "The rhythm of the orchestra changed unexpectedly.",
+    "words": [
+      "the",
+      "rhythm",
+      "of",
+      "the",
+      "orchestra",
+      "changed",
+      "unexpectedly"
+    ]
+  }
+]

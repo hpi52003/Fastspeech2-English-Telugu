@@ -1,0 +1,30 @@
+# Run configuration for the English model (paths, run names, steps).
+# The model / feature settings (mel, pitch, energy, phone set, speaker count ...) are in
+# fastspeech2/config.yaml, the config of the FastSpeech 2 code bundle (English_code.zip).
+language: English
+hf_repo: akshaya148/tts-prepared-data      # Hugging Face dataset repo used as storage (must be readable by you)
+run_name: English_run                           # folder in the repo with checkpoints and loss CSVs
+core_dir: fastspeech2                      # the unpacked English_code.zip (tools/merge_code_zips.py)
+core_config: fastspeech2/config.yaml
+
+paths:
+  data_dir: data/English                        # raw/<speaker>/*.wav|*.lab, TextGrid/, manifest.csv
+  preprocessed_dir: preprocessed/English        # mel / pitch / energy / duration features, stats.json
+  work_root: work                          # replaces /kaggle/working in the core config (checkpoints, logs)
+  results_dir: ../Results/English
+
+kaggle_paths_in_core_config:               # what the core config contains, replaced at run time
+  data: /kaggle/working/data/English
+  preprocessed: /kaggle/working/preprocessed/English
+
+training:
+  total_steps: 30000                      # steps of the final run
+  validate_every: 1000                     # steps
+  best_checkpoint_step: 12000              # lowest validation loss
+
+inference:
+  checkpoint: checkpoints/best.pth.tar
+  sentences: fastspeech2/test_sentences.txt
+  extra_sentences: fastspeech2/extra_sentences.txt
+  speaker_id: 0
+  device: cuda
