@@ -1,12 +1,5 @@
 """
-Telugu forced alignment.
-
-There is no pretrained Telugu acoustic model that I used, so the aligner is trained from scratch on the
-~2.7k selected utterances (monophone -> triphone -> LDA -> SAT, MFA's default pipeline).
-The pronunciation dictionary is built by Telugu/telugu_prep.py (grapheme -> phone mapper, 47 phones).
-
-Usage (needs Telugu/telugu_prep.py, see tools/merge_code_zips.py):
-    python scripts/align_telugu.py data/Telugu Telugu/telugu_prep.py
+python scripts/align_telugu.py data/Telugu Telugu/telugu_prep.py
 """
 import glob, os, subprocess, sys
 import numpy as np
