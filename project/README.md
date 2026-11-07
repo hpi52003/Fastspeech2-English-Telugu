@@ -57,7 +57,7 @@ The scripts rewrite the Kaggle paths (`/kaggle/working/...`) in `fastspeech2/con
 
 ## Checkpoints
 
-Each checkpoint is about 142 MB, which is over GitHub's 100 MB file limit, so `*.pth.tar` files are tracked with Git LFS (see `.gitattributes`). They can also be downloaded from: **TODO: add public link**.
+English/checkpoints/best.pth.tar (step 12,000) and Telugu/checkpoints/best.pth.tar (step 15,000), about 142 MB each, are stored with Git LFS and are also publicly available on Hugging Face (English_run/best.pth.tar and Telugu_run/best.pth.tar): https://huggingface.co/datasets/akshaya148/tts-prepared-data/tree/main
 
 ## Notes
 
