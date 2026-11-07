@@ -1,16 +1,7 @@
 """
 preprocess.py (English) - data selection -> alignment -> feature extraction.
-
-Follows the notebooks (fastspeech2-assignment.ipynb, the alignment cells of the same notebook, training-fastspeech.ipynb):
-  1. select ~5 h train + ~1 h validation        (scripts/data_selection.py)
-  2. number normalisation + forced alignment with the pretrained MFA english_us_arpa model (scripts/align_english.sh)
-  3. point the core config at the local folders and run the core preprocess.py
-     (mel, pitch with PyWorld, energy, durations from the TextGrids, stats.json, train.txt / val.txt)
-
 Run from this folder:
-    python preprocess.py                 # everything
-    python preprocess.py --from-hf       # restore the data and alignments I already produced from the Hub
-    python preprocess.py --skip-selection --skip-align
+    python preprocess.py                 
 """
 import argparse, glob, json, os, shutil, subprocess, sys, zipfile
 import yaml
@@ -21,7 +12,7 @@ LANG = CFG["language"]
 P = {k: os.path.abspath(os.path.join(HERE, v)) for k, v in CFG["paths"].items()}
 CORE = os.path.join(HERE, CFG["core_dir"])
 CORE_CFG = os.path.join(HERE, CFG["core_config"])
-OUT = os.path.join(P["work_root"], "output", LANG)          # ckpt/ and log/ written by the core train.py
+OUT = os.path.join(P["work_root"], "output", LANG)          
 
 
 def hf_get(name):
@@ -30,7 +21,6 @@ def hf_get(name):
 
 
 def patch_core_config():
-    """Same edit the Kaggle/Colab notebooks did: point the core config at local folders."""
     txt = open(CORE_CFG, encoding="utf-8").read()
     old = CFG["kaggle_paths_in_core_config"]
     txt = txt.replace(old["data"], P["data_dir"]).replace(old["preprocessed"], P["preprocessed_dir"])
@@ -49,10 +39,10 @@ def restore_from_hub():
     """What the training notebook did: unpack data + alignments from the Hub repo."""
     tmp = os.path.join(P["work_root"], "align_tmp")
     os.makedirs(P["data_dir"], exist_ok=True); os.makedirs(tmp, exist_ok=True)
-    zipfile.ZipFile(hf_get(f"{LANG}_data.zip")).extractall(P["data_dir"])        # raw/, manifest.csv
-    zipfile.ZipFile(hf_get(f"{LANG}_align.zip")).extractall(tmp)                 # TextGrid/, lab/
+    zipfile.ZipFile(hf_get(f"{LANG}_data.zip")).extractall(P["data_dir"])       
+    zipfile.ZipFile(hf_get(f"{LANG}_align.zip")).extractall(tmp)                 
     shutil.copytree(f"{tmp}/TextGrid", f"{P['data_dir']}/TextGrid", dirs_exist_ok=True)
-    shutil.copytree(f"{tmp}/lab", f"{P['data_dir']}/raw", dirs_exist_ok=True)    # transcripts the aligner used
+    shutil.copytree(f"{tmp}/lab", f"{P['data_dir']}/raw", dirs_exist_ok=True)    
 
 
 def main():
