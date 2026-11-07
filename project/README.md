@@ -2,7 +2,7 @@
 
 Two separate FastSpeech 2 models: English (trained on Svarah) and Telugu (trained on IndicTTS Telugu), about 5 h of training audio and 1 h of validation audio each. This is my submission for the FastSpeech 2 assignment (deadline 07-11-2026).
 
-The full process is in Technical_Report.pdf`.
+The full process is in "Technical_Report.pdf".
 
 ## What is in this repository
 
