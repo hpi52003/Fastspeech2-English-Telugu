@@ -1,21 +1,8 @@
 """
 Data selection, subsampling and train/val split for both languages.
 
-This is the "Splitting" cell of fastspeech2-assignment.ipynb turned into a script.
-The selection logic is unchanged; only the packaging (functions + command line) is new.
-
 English : ai4bharat/Svarah          (only a "test" split exists on the Hub, we use it as our pool)
 Telugu  : SPRINGLab/IndicTTS_Telugu (single voice kept: gender label 1)
-
-Output for each language (under --out):
-    <Lang>/raw/<speaker>/<utt>.wav   22.05 kHz, mono, 16-bit, peak-normalised
-    <Lang>/raw/<speaker>/<utt>.lab   cleaned transcript
-    <Lang>/manifest.csv              utt, speaker, split, dur, text, idx
-    <Lang>/selection_summary.json    how many clips survived each filter
-
-Usage:
-    export HF_TOKEN=hf_xxx
-    python scripts/data_selection.py --out data --lang both
 """
 import argparse, io, json, math, os, re, unicodedata
 
