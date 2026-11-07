@@ -1,16 +1,7 @@
 """
 train.py (Telugu) - trains the Telugu FastSpeech 2 model with the core training script.
-
-What the training notebook (telugu-training.ipynb) did, as a script:
-  * point the core config at local folders
-  * optionally continue an earlier run (checkpoints + loss CSVs) from the Hub
-  * run the core train.py with --resume (15000 steps in total, validation every 1,000 steps,
-    best checkpoint chosen by validation loss, checkpoints/logs pushed to the Hub when HF_TOKEN is set)
-  * copy best.pth.tar, best.json and the loss CSVs next to this script / into Results
-
 Run from this folder (GPU needed):
     python train.py
-    python train.py --restore-from-hf     # continue a run stored in the Hub repo
 """
 import argparse, glob, json, os, shutil, subprocess, sys, zipfile
 import yaml
@@ -30,7 +21,6 @@ def hf_get(name):
 
 
 def patch_core_config():
-    """Same edit the Kaggle/Colab notebooks did: point the core config at local folders."""
     txt = open(CORE_CFG, encoding="utf-8").read()
     old = CFG["kaggle_paths_in_core_config"]
     txt = txt.replace(old["data"], P["data_dir"]).replace(old["preprocessed"], P["preprocessed_dir"])
