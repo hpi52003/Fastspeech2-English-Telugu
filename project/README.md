@@ -19,7 +19,7 @@ The full write-up is in `Report/Technical_Report.pdf`.
 ├── Results/
 │   ├── English/  training_loss.png  validation_loss.png  test_generated_audios/  variance_adaptor_plots/{duration,pitch,energy}/
 │   └── Telugu/   (same layout)
-├── Report/Technical_Report.pdf
+├── Technical_Report.pdf
 ├── scripts/    data selection + forced alignment (shared by both languages)
 ├── tools/      helpers to fetch / unpack the code bundles and checkpoints from Hugging Face
 ├── requirements.txt
