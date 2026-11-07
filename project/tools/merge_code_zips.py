@@ -1,12 +1,6 @@
 """
-Unpack the two FastSpeech 2 code bundles into English/fastspeech2/ and Telugu/fastspeech2/.
-
-The core code (model, core train/preprocess/inference scripts, core config.yaml, telugu_prep.py ...) is in
-English_code.zip and Telugu_code.zip in the Hugging Face repo `akshaya148/tts-prepared-data`.
-English/ and Telugu/ contain my pipeline scripts (preprocess.py, train.py, inference.py, config.yaml) which call
-that core code. Download the zips (Files tab, or tools/download_from_hf.py) and run:
-
-    python tools/merge_code_zips.py English_code.zip Telugu_code.zip
+Unpack the two FastSpeech 2 code bundles into English/fastspeech2/ and Telugu/fastspeech2/
+ python tools/merge_code_zips.py English_code.zip Telugu_code.zip
 """
 import sys, zipfile
 
