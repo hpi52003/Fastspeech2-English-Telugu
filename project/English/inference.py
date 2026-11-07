@@ -1,15 +1,7 @@
 """
-inference.py (English) - synthesise the test sentences with the best checkpoint and write the
-variance-adaptor outputs (duration / pitch / energy) with the core inference script.
-
-What the inference notebook (Inference-colab.ipynb) did, as a script:
-  * make sure stats.json / speakers.json from preprocessing exist
-  * run the core inference.py on the test sentences (+ extra diagnostic sentences) with speaker 0
-  * audio goes to Results/English/test_generated_audios, plots to Results/English/variance_adaptor_plots
-
+inference.py 
 Run from this folder:
     python inference.py
-    python inference.py --ckpt checkpoints/best.pth.tar --device cpu
 """
 import argparse, glob, json, os, shutil, subprocess, sys, zipfile
 import yaml
@@ -29,7 +21,6 @@ def hf_get(name):
 
 
 def patch_core_config():
-    """Same edit the Kaggle/Colab notebooks did: point the core config at local folders."""
     txt = open(CORE_CFG, encoding="utf-8").read()
     old = CFG["kaggle_paths_in_core_config"]
     txt = txt.replace(old["data"], P["data_dir"]).replace(old["preprocessed"], P["preprocessed_dir"])
