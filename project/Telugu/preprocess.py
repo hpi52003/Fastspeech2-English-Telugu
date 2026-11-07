@@ -1,16 +1,7 @@
 """
 preprocess.py (Telugu) - data selection -> alignment -> feature extraction.
-
-Follows the notebooks (fastspeech2-assignment.ipynb, telugu-fastspeech.ipynb, telugu-training.ipynb):
-  1. select ~5 h train + ~1 h validation        (scripts/data_selection.py)
-  2. Telugu dictionary from telugu_prep.py + MFA aligner trained from scratch (scripts/align_telugu.py)
-  3. point the core config at the local folders and run the core preprocess.py
-     (mel, pitch with PyWorld, energy, durations from the TextGrids, stats.json, train.txt / val.txt)
-
 Run from this folder:
-    python preprocess.py                 # everything
-    python preprocess.py --from-hf       # restore the data and alignments I already produced from the Hub
-    python preprocess.py --skip-selection --skip-align
+    python preprocess.py                 
 """
 import argparse, glob, json, os, shutil, subprocess, sys, zipfile
 import yaml
@@ -30,7 +21,6 @@ def hf_get(name):
 
 
 def patch_core_config():
-    """Same edit the Kaggle/Colab notebooks did: point the core config at local folders."""
     txt = open(CORE_CFG, encoding="utf-8").read()
     old = CFG["kaggle_paths_in_core_config"]
     txt = txt.replace(old["data"], P["data_dir"]).replace(old["preprocessed"], P["preprocessed_dir"])
@@ -46,7 +36,6 @@ def run(cmd, **kw):
 
 
 def restore_from_hub():
-    """What the training notebook did: unpack data + alignments from the Hub repo."""
     tmp = os.path.join(P["work_root"], "align_tmp")
     os.makedirs(P["data_dir"], exist_ok=True); os.makedirs(tmp, exist_ok=True)
     zipfile.ZipFile(hf_get(f"{LANG}_data.zip")).extractall(P["data_dir"])        # raw/, manifest.csv
