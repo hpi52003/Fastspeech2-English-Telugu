@@ -1,12 +1,5 @@
-"""
-Spell out numbers in the English transcripts before forced alignment.
-
-MFA's english_us_arpa dictionary has no entries for digits, so about 40 transcripts failed
-to align the first time (years like 1990s, ordinals, decimals, comma-separated numbers).
-This is the final `norm_en` from the notebook (the one that fixed those 40 files).
-The labels are rewritten from manifest.csv so the script can be re-run safely.
-
-Usage:  python scripts/normalize_english_labels.py data/English
+""".
+python scripts/normalize_english_labels.py data/English
 """
 import re, sys, glob
 import pandas as pd
