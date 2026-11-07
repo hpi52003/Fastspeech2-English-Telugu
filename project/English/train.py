@@ -1,16 +1,7 @@
 """
 train.py (English) - trains the English FastSpeech 2 model with the core training script.
-
-What the training notebook (training-fastspeech.ipynb) did, as a script:
-  * point the core config at local folders
-  * optionally continue an earlier run (checkpoints + loss CSVs) from the Hub
-  * run the core train.py with --resume (30000 steps in total, validation every 1,000 steps,
-    best checkpoint chosen by validation loss, checkpoints/logs pushed to the Hub when HF_TOKEN is set)
-  * copy best.pth.tar, best.json and the loss CSVs next to this script / into Results
-
 Run from this folder (GPU needed):
     python train.py
-    python train.py --restore-from-hf     # continue a run stored in the Hub repo
 """
 import argparse, glob, json, os, shutil, subprocess, sys, zipfile
 import yaml
@@ -21,7 +12,7 @@ LANG = CFG["language"]
 P = {k: os.path.abspath(os.path.join(HERE, v)) for k, v in CFG["paths"].items()}
 CORE = os.path.join(HERE, CFG["core_dir"])
 CORE_CFG = os.path.join(HERE, CFG["core_config"])
-OUT = os.path.join(P["work_root"], "output", LANG)          # ckpt/ and log/ written by the core train.py
+OUT = os.path.join(P["work_root"], "output", LANG)          
 
 
 def hf_get(name):
@@ -34,7 +25,7 @@ def patch_core_config():
     txt = open(CORE_CFG, encoding="utf-8").read()
     old = CFG["kaggle_paths_in_core_config"]
     txt = txt.replace(old["data"], P["data_dir"]).replace(old["preprocessed"], P["preprocessed_dir"])
-    txt = txt.replace("/kaggle/working", P["work_root"])      # checkpoints / logs / any other leftover path
+    txt = txt.replace("/kaggle/working", P["work_root"])     
     open(CORE_CFG, "w", encoding="utf-8").write(txt)
 
 
@@ -69,7 +60,7 @@ def main():
         restore_run_from_hub()
 
     env = dict(os.environ)
-    if env.get("HF_TOKEN"):                                   # sync checkpoints/logs to the Hub while training
+    if env.get("HF_TOKEN"):                                  
         env["HF_UPLOAD_REPO"] = CFG["hf_repo"]
         env["HF_UPLOAD_PREFIX"] = CFG["run_name"]
     run([sys.executable, "-u", "train.py", "-c", "config.yaml"] + ([] if a.no_resume else ["--resume"]), cwd=CORE, env=env)
