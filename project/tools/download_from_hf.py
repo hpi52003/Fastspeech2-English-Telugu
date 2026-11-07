@@ -1,6 +1,5 @@
 """
-Download code bundles and the trained checkpoints from the Hugging Face dataset repo.
-The repo must be readable for the token you use (it was private while I was working).
+Download code bundles and the trained checkpoints from the Hugging Face dataset repo
 
     export HF_TOKEN=hf_xxx
     python tools/download_from_hf.py
